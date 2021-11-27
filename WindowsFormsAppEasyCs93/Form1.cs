@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -38,9 +39,13 @@ namespace WindowsFormsAppEasyCs93
             int w = this.ClientSize.Width;
             int h = this.ClientSize.Height;
             
-            g.FillEllipse(new SolidBrush(Color.DeepPink), 0, 0, w, h);
-            g.FillPie(new SolidBrush(Color.DarkOrchid), 0, 0, w, h, -90, (float)0.6 * elapsed);
-            g.FillEllipse(new SolidBrush(Color.Bisque), (int)w/4, (int)h/4, (int)w/2, (int)h/2);
+            // g.FillEllipse(new SolidBrush(Color.DeepPink), 0, 0, w, h);
+            // g.FillPie(new SolidBrush(Color.DarkOrchid), 0, 0, w, h, -90, (float)0.6 * elapsed);
+            // g.FillEllipse(new SolidBrush(Color.Bisque), (int)w/4, (int)h/4, (int)w/2, (int)h/2);
+            
+            g.FillRectangle(new SolidBrush(Color.DeepPink), 0, 0, w, h);
+            g.FillRectangle(new SolidBrush(Color.DarkOrchid), 0, 0, (w / 100) * elapsed, h);
+            g.FillRectangle(new SolidBrush(Color.Bisque), (int)w/4, (int)h/4, (int)w/2, (int)h/2);
 
             string time = elapsed / 10 + ":" + "0" + elapsed % 10;
             // int hour = elapsed / 10;
@@ -63,6 +68,8 @@ namespace WindowsFormsAppEasyCs93
             if (elapsed > 600) // After 1 minute
             {
                 elapsed = 0;
+                Console.WriteLine(elapsed);
+                Debug.WriteLine(elapsed);
                 // this.Invalidate();
             }
             this.Invalidate();
