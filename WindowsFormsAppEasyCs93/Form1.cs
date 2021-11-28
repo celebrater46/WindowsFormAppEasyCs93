@@ -37,7 +37,8 @@ namespace WindowsFormsAppEasyCs93
         {
             Graphics g = e.Graphics;
 
-            int w = this.ClientSize.Width;
+            // int w = this.ClientSize.Width;
+            float w = this.ClientSize.Width;
             int h = this.ClientSize.Height;
             
             // g.FillEllipse(new SolidBrush(Color.DeepPink), 0, 0, w, h);
@@ -45,7 +46,7 @@ namespace WindowsFormsAppEasyCs93
             // g.FillEllipse(new SolidBrush(Color.Bisque), (int)w/4, (int)h/4, (int)w/2, (int)h/2);
             
             g.FillRectangle(new SolidBrush(Color.DeepPink), 0, 0, w, h);
-            g.FillRectangle(new SolidBrush(Color.DarkOrchid), 0, 0, (w / 100) * elapsed, h);
+            g.FillRectangle(new SolidBrush(Color.DarkOrchid), 0, 0, (int)((w/600)*elapsed), h);
             g.FillRectangle(new SolidBrush(Color.Bisque), (int)w/4, (int)h/4, (int)w/2, (int)h/2);
 
             string time = elapsed / 10 + ":" + "0" + elapsed % 10;
@@ -66,7 +67,7 @@ namespace WindowsFormsAppEasyCs93
         public void TmTick(Object sender, EventArgs e)
         {
             elapsed++;
-            if (elapsed > 100) // After 1 minute
+            if (elapsed > 600) // After 1 minute
             {
                 elapsed = 0;
                 Console.WriteLine(elapsed);
