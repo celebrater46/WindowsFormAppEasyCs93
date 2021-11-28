@@ -30,6 +30,7 @@ namespace WindowsFormsAppEasyCs93
 
             this.Paint += new PaintEventHandler(FmPaint);
             tm.Tick += new EventHandler(TmTick);
+            Console.WriteLine(elapsed);
         }
 
         public void FmPaint(Object sender, PaintEventArgs e)
@@ -65,11 +66,11 @@ namespace WindowsFormsAppEasyCs93
         public void TmTick(Object sender, EventArgs e)
         {
             elapsed++;
-            if (elapsed > 600) // After 1 minute
+            if (elapsed > 100) // After 1 minute
             {
                 elapsed = 0;
                 Console.WriteLine(elapsed);
-                Debug.WriteLine(elapsed);
+                // Debug.WriteLine(elapsed);
                 // this.Invalidate();
             }
             this.Invalidate();

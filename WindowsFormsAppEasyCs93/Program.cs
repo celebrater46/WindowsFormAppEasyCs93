@@ -16,6 +16,7 @@ namespace WindowsFormsAppEasyCs93
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Console.WriteLine("Hello World");
             Application.Run(new Form1());
         }
     }
